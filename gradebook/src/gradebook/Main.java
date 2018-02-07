@@ -64,17 +64,18 @@ public class Main {
 			
 			
 			
-			System.out.println("The first student " + studentName1 +" "+ studentSuranme1 + " have grade " + grade1 +".");
-			System.out.println("The second student " + studentName2 +" "+ studentSuranme2 + " have grade " + grade2 +".");
-			System.out.println("The third student " + studentName3 +" "+ studentSuranme3 + " have grade " + grade3 +".");
-			System.out.println("The fourth student " + studentName4 +" "+studentSuranme4 +  " have grade " + grade4 +".");
-			System.out.println("The fifth student " + studentName5 +" "+ studentSuranme5 + " have grade " + grade5 +".");
+			System.out.println("The first student " + studentName1 +" "+ studentSuranme1 + " has grade " + grade1 +".");
+			System.out.println("The second student " + studentName2 +" "+ studentSuranme2 + " has grade " + grade2 +".");
+			System.out.println("The third student " + studentName3 +" "+ studentSuranme3 + " has grade " + grade3 +".");
+			System.out.println("The fourth student " + studentName4 +" "+studentSuranme4 +  " has grade " + grade4 +".");
+			System.out.println("The fifth student " + studentName5 +" "+ studentSuranme5 + " has grade " + grade5 +".");
 			
 			double totalGrade = grade1 + grade2 + grade3 + grade4 + grade5;
 			double averageGarde= totalGrade /5;
 			
 			
 			System.out.println("_________________________________________________");
+			System.out.println("Total grade of all fifth students is " + totalGrade);
 			System.out.println("Average grade of all fifth students is " + averageGarde);
 			
 			
