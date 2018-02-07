@@ -71,12 +71,13 @@ public class Main {
 			System.out.println("The fifth student " + studentName5 +" "+ studentSuranme5 + " has grade " + grade5 +".");
 			
 			double totalGrade = grade1 + grade2 + grade3 + grade4 + grade5;
-			double averageGarde= totalGrade /5;
+			
 			
 			
 			System.out.println("_________________________________________________");
+			
+			
 			System.out.println("Total grade of all fifth students is " + totalGrade);
-			System.out.println("Average grade of all fifth students is " + averageGarde);
 			
 			
 			
