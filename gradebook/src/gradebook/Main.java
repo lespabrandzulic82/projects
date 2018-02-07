@@ -6,59 +6,62 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		String studentA;
-		String studentB;
-		String studentC;
-		String studentD;
-		String studentE;
 		
-		int gradeA = 0;
-		int gradeB = 0;
-		int gradeC = 0;
-		int gradeD = 0;
-		int gradeE = 0;
-		int totalGrade = 0;
 		
-		try(Scanner sc = new Scanner(System.in)) {	 
-		
-			System.out.println("Enter the name and surname of your first student and his grade: ");
+		try( Scanner sc= new Scanner(System.in)){
 			
-			studentA = sc.next();
-			gradeA = sc.nextInt();
+			System.out.println("Enter a name of first studendt: ");
+			String firstStudentName = sc.next();
+			System.out.println("Enter a surname of first studendt: ");
+			String firstStudentserName = sc.next();
+			System.out.println("Enter a grade of first studendt: ");
+			int firstStudentGrade= sc.nextInt();
+			
+			System.out.println("Enter a name of second studendt: ");
+			String secondStudentName = sc.next();
+			System.out.println("Enter a surname of second studendt: ");
+			String secondStudentserName = sc.next();
+			System.out.println("Enter a grade of second studendt: ");
+			int secondStudentGrade= sc.nextInt();
+			
+			System.out.println("Enter a name of third studendt: ");
+			String thirdStudentName = sc.next();
+			System.out.println("Enter a surname of third studendt: ");
+			String thirdStudentserName = sc.next();
+			System.out.println("Enter a grade of third studendt: ");
+			int thirdStudentGrade= sc.nextInt();
+			
+			System.out.println("Enter a name of fourth studendt: ");
+			String fourthStudentName = sc.next();
+			System.out.println("Enter a surname of fourth studendt: ");
+			String fourthStudentserName = sc.next();
+			System.out.println("Enter a grade of fourth studendt: ");
+			int fourthStudentGrade= sc.nextInt();
+			
+			System.out.println("Enter a name of fifth studendt: ");
+			String fifthStudentName = sc.next();
+			System.out.println("Enter a surname of fifth studendt: ");
+			String fifthStudentserName = sc.next();
+			System.out.println("Enter a grade of fifth studendt: ");
+			int fifthStudentGrade= sc.nextInt();
+			
+			double totalGrade= firstStudentGrade+secondStudentGrade +thirdStudentGrade +fourthStudentGrade+fifthStudentGrade;
+			double averageGrade= totalGrade/ 5;
+			
+			System.out.println("Total grade of all fifth student is"+ totalGrade);
+			System.out.println();
+			System.out.println("Average grade is:"+ averageGrade);
+			
+			
+			
+			
+			
+			
+			
+		   
+		
+		
 
-			System.out.println("Enter the name and surname of your second student and his grade: ");
-			
-			studentB = sc.next();
-			gradeB = sc.nextInt();
-			
-			System.out.println("Enter the name and surname of your third student and his grade: ");
-			
-			studentC = sc.next();
-			gradeC = sc.nextInt();
-			
-			System.out.println("Enter the name and surname of your fourth student and his grade: ");
-			
-			studentD = sc.next();
-			gradeD = sc.nextInt();
-			
-			System.out.println("Enter the name and surname of your fifth student and his grade: ");
-			
-			studentE = sc.next();
-			gradeE = sc.nextInt();
-			
-			totalGrade = gradeA + gradeB + gradeC + gradeD + gradeE;
-			
-	
-			System.out.println("Student " + studentA + " has grade " + gradeA);
-			System.out.println("Student " + studentB + " has grade " + gradeB);
-			System.out.println("Student " + studentC + " has grade " + gradeC);
-			System.out.println("Student " + studentD + " has grade " + gradeD);
-			System.out.println("Student " + studentE + " has grade " + gradeE);
-			
-			System.out.println("Total grade of all students is " + totalGrade);
-				
-		}
-
+	  }
 	}
-
 }
