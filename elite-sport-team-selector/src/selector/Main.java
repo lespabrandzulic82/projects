@@ -12,6 +12,7 @@ public class Main {
 		 System.out.println("Position 3 - small forward.");
 		 System.out.println("Position 5 - center.");
 		 System.out.println("Please submit your application.");
+		 
 		 try (Scanner sc= new Scanner(System.in)){
 			 
 			  System.out.println("Please enter your name:");
