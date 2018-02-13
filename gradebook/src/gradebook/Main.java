@@ -71,7 +71,7 @@ public class Main {
 							
 			System.out.println("_________________________________________________");
 						
-			System.out.println("Total grade of all five students is" + totalGrade);
+			System.out.println("Total grade of all five students is " + totalGrade);
 		
 		}
 
