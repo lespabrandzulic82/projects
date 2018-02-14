@@ -1,4 +1,4 @@
-package advancegradebook;
+package advancedgradebook;
 
 public class Main {
 
