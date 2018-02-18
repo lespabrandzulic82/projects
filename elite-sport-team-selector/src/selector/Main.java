@@ -27,18 +27,21 @@ public class Main {
 			  double points = sc.nextDouble();
 			  System.out.println("What is your average namber of assistentions per game in last season:");
 			  double asist = sc.nextDouble();
-			  System.out.println("What is  your average number of jumps per game in last season");
+			  System.out.println("What is your average number of jumps per game in last season:");
 			  double jump = sc.nextDouble();
 			  
 			  System.out.println("Please choose your position: 1,3,5 ");
-			  int position= sc.nextInt();
+			  int position = sc.nextInt();
 			  
-			  if (position == 1 && age >= 25 && height < 200 && asist > 6 ) {
-				  System.out.println("Thank you " + name + " " + surname + " for applying for PLAY position." + '\n' + "Your application has been accepted, we will contact you soon!");
-			  } else if (position == 3 && age >= 20 && height > 190 && points > 12 ) {
-				  System.out.println("Thank you " + name + " " + surname + " for applying for SMALL FORWARD position." + '\n' + "Your application has been accepted, we will contact you soon!");
-			  } else if (position == 5  && age >= 28 && height > 205 && jump > 7 ) {
-				  System.out.println("Thank you " + name + " " + surname + " for applying for CENTER position." + '\n' + "Your application has been accepted, we will contact you soon!");
+			  if (position == 1 && age > 25 && height < 200 && asist > 6) {
+				  System.out.println("Thank you " + name + " " + surname + " for applying for PLAY position.");
+				  System.out.println("Your application has been accepted, we will contact you soon!");
+			  } else if (position == 3 && age > 20 && height > 190 && points > 12) {
+				  System.out.println("Thank you " + name + " " + surname + " for applying for SMALL FORWARD position.");
+				  System.out.println("Your application has been accepted, we will contact you soon!");
+			  } else if (position == 5  && age > 28 && height > 205 && jump > 7) {
+				  System.out.println("Thank you " + name + " " + surname + " for applying for CENTER position.");
+				  System.out.println("Your application has been accepted, we will contact you soon!");
 			  } else {
 				  System.out.println("Thank you " + name + " " + surname + " for applying.");
 				  System.out.println("Unfortunatelly, your characteristics are not matching our criteria!");
