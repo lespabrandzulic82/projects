@@ -67,14 +67,12 @@ public class Main {
 			System.out.println("The fourth student " + studentName4 + " " + studentSurname4 +  " has grade " + grade4 + ".");
 			System.out.println("The fifth student " + studentName5 + " " + studentSurname5 + " has grade " + grade5 + ".");
 			
-			double totalGrade = grade1 + grade2 + grade3 + grade4 + grade5;
+			int totalGrade = grade1 + grade2 + grade3 + grade4 + grade5;
 							
 			System.out.println("_________________________________________________");
 						
 			System.out.println("Total grade of all five students is " + totalGrade);
 		
 		}
-
 	}
-	
 }
