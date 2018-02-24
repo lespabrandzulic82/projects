@@ -14,29 +14,26 @@ public class Main {
 
 			System.out.println("Enter number of students in your class");
 			numStudents = sc.nextInt();
-			String [][] names = new String[numStudents][1];
-			String [][] surnames = new String[numStudents][1];
-			int [] grades = new int[numStudents];
+			String[] names = new String[numStudents];
+			String[] surnames = new String[numStudents];
+			int[] grades = new int[numStudents];
+			
 			for(int i = 0; i < numStudents; i++) {
 				System.out.println("Enter student's name");
-				names[i][0] = sc.next();
+				names[i] = sc.next();
 				System.out.println("Enter student's surname");
-				surnames[i][0] = sc.next();
+				surnames[i] = sc.next();
 				System.out.println("Enter student's grade");
-				grades[i] = sc.nextInt();
-				
+				grades[i] = sc.nextInt();	
 			}
 			
 			for(int i = 0; i < numStudents; i++) {
-				System.out.println("Student " + names[i][0] + " " + surnames[i][0] + " has grade " + grades[i] + "." );
+				System.out.println("Student " + names[i] + " " + surnames[i] + " has grade " + grades[i] + "." );
 				totalGrade += grades[i];
-	
 			}
+			
 				averageGrade = totalGrade/numStudents; 
 				System.out.println("Total grade of all students is " + totalGrade + " and average is " + averageGrade + ".");
-				
-		}
-		
-	}
-
-}
+			}
+       }
+  }
