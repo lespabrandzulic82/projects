@@ -32,7 +32,7 @@ public class Main {
 				totalGrade += grades[i];
 			}
 			
-				averageGrade = totalGrade/numStudents; 
+				averageGrade = totalGrade / numStudents; 
 				System.out.println("Total grade of all students is " + totalGrade + " and average is " + averageGrade + ".");
 			}
        }
