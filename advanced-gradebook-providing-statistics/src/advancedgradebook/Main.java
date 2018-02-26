@@ -7,12 +7,12 @@ public class Main {
 	public static void main(String[] args) {
 		
 		int numStudents = 0;
-		double totalGrade = 0;
+		int totalGrade = 0;
 		double averageGrade = 0;
 		
 		try (Scanner sc = new Scanner(System.in)) {
 
-			System.out.println("Enter number of students in your class");
+			System.out.println("Enter number of students in your class:");
 			numStudents = sc.nextInt();
 			String[] names = new String[numStudents];
 			String[] surnames = new String[numStudents];
@@ -28,12 +28,33 @@ public class Main {
 			}
 			
 			for(int i = 0; i < numStudents; i++) {
-				System.out.println("Student " + names[i] + " " + surnames[i] + " has grade " + grades[i] + "." );
+				int x = i + 1;
+				System.out.println(x + ". Student " + names[i] + " " + surnames[i] + " has grade " + grades[i] + "." );
 				totalGrade += grades[i];
 			}
 			
-				averageGrade = totalGrade / numStudents; 
-				System.out.println("Total grade of all students is " + totalGrade + " and average is " + averageGrade + ".");
+			averageGrade = (double)totalGrade / numStudents;
+			
+			int max = grades[0];
+			for(int i = 0; i < numStudents; i++) {
+				if(grades[i] > max) {
+					max = grades[i];
+				}
+			}
+			
+			int min = grades[0];
+			for(int i = 0; i < numStudents; i++) {
+				if(grades[i] < min ) {
+					min = grades[i];
+				}
+			}
+			
+			System.out.println("===========================================");
+			System.out.println("Total number of  students for grading is " + numStudents + ".");
+			System.out.println("Total grade of all students is " + totalGrade + ".");
+			System.out.println("Average grade of all students is " + averageGrade + ".");
+			System.out.println("Minimum grade of all students is " + min + ".");
+			System.out.println("Maximum grade of all students is " + max + ".");
 			}
        }
   }
