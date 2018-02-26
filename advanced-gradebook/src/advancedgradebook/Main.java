@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		int numStudents = 0;
-		double totalGrade = 0;
+		int totalGrade = 0;
 		double averageGrade = 0;
 		
 		try (Scanner sc = new Scanner(System.in)) {
@@ -32,7 +32,7 @@ public class Main {
 				totalGrade += grades[i];
 			}
 			
-				averageGrade = totalGrade / numStudents; 
+				averageGrade = (double)totalGrade / numStudents; 
 				System.out.println("Total grade of all students is " + totalGrade + " and average is " + averageGrade + ".");
 			}
        }
