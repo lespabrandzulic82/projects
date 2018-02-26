@@ -33,7 +33,7 @@ public class Main {
 				totalGrade += grades[i];
 			}
 			
-			averageGrade = (double)totalGrade / numStudents;
+			averageGrade = (double) totalGrade / numStudents;
 			
 			int max = grades[0];
 			for(int i = 0; i < numStudents; i++) {
