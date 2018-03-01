@@ -38,23 +38,23 @@ public class Main {
 			
 			Client client = new Client(name, surname, salary, age, isMarried, isFullTimeEmployee, credit);
 			
-			if (credit == 1 && client.getAge() > 40 && client.getSalary() > 700 && isMarried == true && isFullTimeEmployee == true) {
+			if (credit == 1 && client.getAge() < 40 && client.getSalary() > 700 && isMarried == true && isFullTimeEmployee == true) {
 				  System.out.println("Thank you for applying for credit.");
-				  System.out.println("Your personal data are: name and surname" + client.getName() + " " + client.getSurname() +  "your salary is - " + client.getSalary() + "eu, you are " + client.getAge() + ".");
+				  System.out.println("Your personal data are: name and surname -" + client.getName() + " " + client.getSurname() +  ", your salary is - " + client.getSalary() + " eu, you are -" + client.getAge() + " year old.");
 				  System.out.println("Your credit  will be approved!");
 			  } else if (credit == 2 && client.getAge() > 30 && client.getSalary() > 350) {
-				  System.out.println("hank you for applying for credit.");
-				  System.out.println("Your personal data are: name and surname" + client.getName() + " " + client.getSurname() +  "your salary is - " + client.getSalary() + "eu, you are " + client.getAge() + ".");
+				  System.out.println("Thank you for applying for credit.");
+				  System.out.println("Your personal data are: name and surname - " + client.getName() + " " + client.getSurname() +  ", your salary is - " + client.getSalary() + " eu, you are -" + client.getAge() + " year old.");
 				  System.out.println("Your credit  will be approved!");
 			  } else if (credit == 3  && client.getAge() > 20 && client.getSalary() > 250) {
 				  System.out.println("Thank you for applying for credit.");	
-				  System.out.println("Your personal data are: name and surname" + client.getName() + " " + client.getSurname() +  "your salary is - " + client.getSalary() + "eu, you are " + client.getAge() + ".");
+				  System.out.println("Your personal data are: name and surname -" + client.getName() + " " + client.getSurname() +  ", your salary is - " + client.getSalary() + " eu, you are -" + client.getAge() + " year old.");
 				  System.out.println("Your credit  will be approved!");
 			  } else {
 				  System.out.println("Thank you for applying for credit.");
-				  System.out.println("Your personal data are: name and surname" + client.getName() + " " + client.getSurname() +  "your salary is - " + client.getSalary() + "eu, you are " + client.getAge() + ".");
+				  System.out.println("Your personal data are: name and surname -" + client.getName() + " " + client.getSurname() +  ", your salary is - " + client.getSalary() + " eu, you are -" + client.getAge() + " year old.");
 				  System.out.println("Unfortunately, your credit will not be aproved");
-		}
-	}
-  }
+		      }
+		 }
+	 }
 }
