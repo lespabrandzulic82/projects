@@ -36,6 +36,7 @@ public class Main {
 			System.out.println("If you want consumer loan enter number 3");
 			int credit = sc.nextInt();
 			
+			
 			Client client = new Client(name, surname, salary, age, isMarried, isFullTimeEmployee, credit);
 			
 			if (credit == 1 && client.getAge() < 40 && client.getSalary() > 700 && isMarried == true && isFullTimeEmployee == true) {
@@ -55,6 +56,8 @@ public class Main {
 				  System.out.println("Your personal data are: name and surname -" + client.getName() + " " + client.getSurname() +  ", your salary is - " + client.getSalary() + " eu, you are -" + client.getAge() + " year old.");
 				  System.out.println("Unfortunately, your credit will not be aproved");
 		      }
+			
+			
 		 }
 	 }
 }
