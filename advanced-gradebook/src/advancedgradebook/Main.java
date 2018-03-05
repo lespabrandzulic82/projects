@@ -153,7 +153,7 @@ public class Main {
 			
 			if (quitProgram ==  'Y' || quitProgram == 'y') {
 					System.exit(0);
-				}
+			}
 			}
 		}
 	}
