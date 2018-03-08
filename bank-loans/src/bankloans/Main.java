@@ -183,15 +183,15 @@ public class Main {
 								countEmployee ++;
 							}							
 				 }
-				 
+				 				 
 				 System.out.println("Number of clients is " + numClient + ".");
 				 System.out.println("Average salary is " + totalSalary/numClient +".");
-			     System.out.println("Number of approved credist is " + countCredit + ", and number of rejected credits is " + (numClient - countCredit) + ".");
-			     System.out.println("The percentage of approved credits is " + (double)countCredit / numClient * 100 + "%, while percentage of rejected credits is " + (double)(numClient - countCredit) / numClient * 100 + "%.");
-			     System.out.println("Number of married clients is " + countMarried + ", and number of single clients is " + (numClient - countMarried) + ".");
-			     System.out.println("The percentage of married clients is " + (double)countMarried / numClient * 100 + "%, while percentage of single clients is " + (double)(numClient - countMarried) / numClient * 100 + "%.");
-			     System.out.println("Number of clients with full time job is " + countEmployee + ", and number of clients who don't have full time job is " + (numClient - countEmployee) + ".");
-			     System.out.println("The percentage of  clients with full time job is " + (double)countEmployee / numClient * 100 + "%, while percentage of clients who don't have full time job is " + (double)(numClient - countEmployee) / numClient * 100 + "%.");
+				 System.out.println("Number of approved credist is " + countCredit + ", and number of rejected credits is " + (numClient - countCredit) + ".");
+				 System.out.println("The percentage of approved credits is " + (double)countCredit / numClient * 100 + "%, while percentage of rejected credits is " + (double)(numClient - countCredit) / numClient * 100 + "%.");
+				 System.out.println("Number of married clients is " + countMarried + ", and number of single clients is " + (numClient - countMarried) + ".");
+				 System.out.println("The percentage of married clients is " + (double)countMarried / numClient * 100 + "%, while percentage of single clients is " + (double)(numClient - countMarried) / numClient * 100 + "%.");
+				 System.out.println("Number of clients with full time job is " + countEmployee + ", and number of clients who don't have full time job is " + (numClient - countEmployee) + ".");
+				 System.out.println("The percentage of  clients with full time job is " + (double)countEmployee / numClient * 100 + "%, while percentage of clients who don't have full time job is " + (double)(numClient - countEmployee) / numClient * 100 + "%.");
 
 		}
 	}
