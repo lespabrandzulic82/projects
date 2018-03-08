@@ -11,7 +11,7 @@ public class Client {
 	private boolean isMarried;
 	private boolean isFullTimeEmployee;
 	private int credit;
-	
+		
 	// Constructor for a Class Client
 	
 	public Client(String name, String surname, double salary, int age, boolean isMarried, boolean isFullTimeEmployee, int credit) {
@@ -20,7 +20,8 @@ public class Client {
 		this.salary = salary;
 		this.age = age;
 		this.isMarried = isMarried;
-		this.isFullTimeEmployee = isFullTimeEmployee;				
+		this.isFullTimeEmployee = isFullTimeEmployee;	
+		this.credit = credit;
 	}
 	
 	//Method for Class Client
@@ -52,6 +53,10 @@ public class Client {
 	public int getCredit() {
 		return credit;
 	}
-	
-	
+
+	public int size() {
+		
+		return 0;
+	}
+		
 }
