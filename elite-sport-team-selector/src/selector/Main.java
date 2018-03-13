@@ -38,7 +38,7 @@ public class Main {
 			  System.out.println("Please choose your position: 1,3,5 ");
 			  int position = sc.nextInt();
 			  
-			  Player player = new Player(name,  surname,  height,  age,  points,  assistances, jumps,  position);
+			  Player player = new Player(name, surname, height, age, points, assistances, jumps, position);
 			  
 			  if (position == 1 && age > 25 && height < 200 && assistances > 6) {
 				  System.out.println("Thank you " + player.getName() + " " + player.getSurname() + " for applying for PLAY position.");
@@ -60,3 +60,4 @@ public class Main {
 		 }
 	 }
 }
+
