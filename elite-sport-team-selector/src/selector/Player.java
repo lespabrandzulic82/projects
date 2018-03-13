@@ -2,8 +2,6 @@ package selector;
 
 public class Player {
 	
-	// Attributes  for class Player
-	
 	private String name;
 	private String surname;
 	private int height;
@@ -12,10 +10,7 @@ public class Player {
 	private double assistances;
 	private int jumps;
 	private int position;
-	
-	
-	//constructor for class Player
-	
+		
 	public Player(String name, String surname, int height, int age, double points, double assistances, int jumps, int position) {
 		this.name = name;
 		this.surname = surname;
@@ -26,9 +21,7 @@ public class Player {
 		this.jumps = jumps;
 		this.position = position;
 	}
-	
-	// methods for class Player
-	
+		
 	public String getName() {
 		return name;
 	}
