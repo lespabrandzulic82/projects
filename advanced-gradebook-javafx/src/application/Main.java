@@ -4,13 +4,20 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.control.TextField;
+import javafx.geometry.Insets;
 
 
 public class Main extends Application {
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			TextField textField = new TextField("NumStudents");
+			textField.setMinWidth(180);
 			BorderPane root = new BorderPane();
+			root.setPadding(new Insets(10));
+			root.getChildren().add(textField);
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
