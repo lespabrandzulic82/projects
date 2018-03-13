@@ -12,11 +12,11 @@ public class Main {
 		System.out.println("Follow the instructions and complete application");
 		System.out.println("Select the number of clients and type of credit they want to get information about");		
 		
-		clientDemo();	
+		runClient();	
 		
 	}	
 	
-	private static void clientDemo() {
+	private static void runClient() {
 	
 		ArrayList<Client> clientList = new ArrayList<Client>();		
 		
@@ -56,8 +56,7 @@ public class Main {
 			
 				if (quitProgram ==  'Y' || quitProgram == 'y') {
 					break;
-				}
-									
+				}									
 			}
 
 			 int numClient = clientList.size(); 
