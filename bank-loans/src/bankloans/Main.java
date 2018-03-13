@@ -27,33 +27,24 @@ public class Main {
 		try(Scanner sc = new Scanner(System.in)){
 			
 			while(true) {
-			 
-				String name;
-				String surname;
-				double salary;
-				int age;
-				boolean isMarried;
-				boolean isFullTimeEmployee;
-				int credit;
-								
 				System.out.println("Please enter name of the client:");
-				name = sc.next();	
+				String name = sc.next();	
 				System.out.println("Please enter surname of the client:");
-				surname = sc.next();
+				String surname = sc.next();
 				System.out.println("Please enter client's salary in EUR:");
-				salary = sc.nextInt();
+				double salary = sc.nextInt();
 				System.out.println("Age of the client:");
-				age = sc.nextInt();				
+				int age = sc.nextInt();				
 				System.out.println("Is he/she married? (if Yes enter true, if No enter false) ");
-				isMarried = sc.nextBoolean();
+				boolean isMarried = sc.nextBoolean();
 				System.out.println("Is he/she full time employee? (if Yes enter true, if No enter false)");
-				isFullTimeEmployee = sc.nextBoolean();
+				boolean isFullTimeEmployee = sc.nextBoolean();
 			
 				System.out.println("What credit do you want to apply for?");
 				System.out.println("If you want house loan enter number 1");
 				System.out.println("If you want cash loan enter number 2");
 				System.out.println("If you want consumer loan enter number 3");
-				credit = sc.nextInt();				
+				int credit = sc.nextInt();				
 	
 				Client client = new Client(name, surname, salary, age, isMarried, isFullTimeEmployee, credit);
 				clientList.add(client);
@@ -66,8 +57,7 @@ public class Main {
 				if (quitProgram ==  'Y' || quitProgram == 'y') {
 					break;
 				}
-				
-					
+									
 			}
 
 			 int numClient = clientList.size(); 
@@ -78,24 +68,24 @@ public class Main {
 					
 					 String creditType = "";
 					 					 
-					 if (client.getCredit() == 1) {
+					 if(client.getCredit() == 1) {
 						 creditType = "House loan"; 
-					 }else if (client.getCredit() == 2) {
+					 } else if(client.getCredit() == 2) {
 						 creditType = "Cash loan";
-					 }else if (client.getCredit() == 3) {
+					 } else if(client.getCredit() == 3) {
 						 creditType = "Consumer loan";
 					 }
 					 
-					 boolean IsCreditApproved;
+					 boolean isCreditApproved;
 					 
-					 if (client.getCredit() == 1 && client.getAge() < 40 && client.getSalary() > 700 && client.isMarried() == true && client.isFullTimeEmployee() == true) {
-						 IsCreditApproved = true;
-					 }else if (client.getCredit() == 2 && client.getAge() > 30 && client.getSalary() > 350) {
-						 IsCreditApproved = true;
-					 }else if (client.getCredit() == 3  && client.getAge() > 20 && client.getSalary() > 250) {
-						 IsCreditApproved = true;
-					 }else {
-						 IsCreditApproved = false;
+					 if(client.getCredit() == 1 && client.getAge() < 40 && client.getSalary() > 700 && client.isMarried() == true && client.isFullTimeEmployee() == true) {
+						 isCreditApproved = true;
+					 } else if(client.getCredit() == 2 && client.getAge() > 30 && client.getSalary() > 350) {
+						 isCreditApproved = true;
+					 } else if(client.getCredit() == 3  && client.getAge() > 20 && client.getSalary() > 250) {
+						 isCreditApproved = true;
+					 } else {
+						 isCreditApproved = false;
 					 }
 					
 				/*if (client.getCredit() == 1 && client.getAge() < 40 && client.getSalary() > 700 && client.isMarried() == true && client.isFullTimeEmployee() == true) {
@@ -154,9 +144,9 @@ public class Main {
 							System.out.println("Age: " + client.getAge());
 							System.out.println("Is married: " + client.isMarried());
 							System.out.println("Is employed fulltime: " + client.isFullTimeEmployee());
-							System.out.println("Approved: " + IsCreditApproved );
+							System.out.println("Approved: " + isCreditApproved );
 							System.out.println("============================================="); 
-					/* }else {
+					/* } else {
 						 System.out.println("=============================================");
 							System.out.println("Client applied for credit: " + creditType + "." + " Client's personal data are:");
 							System.out.println("Name: " + client.getName());
@@ -171,7 +161,7 @@ public class Main {
 				
 							totalSalary += client.getSalary();				
 				 
-							if(IsCreditApproved == true) {
+							if(isCreditApproved == true) {
 								countCredit ++;
 							}
 							
@@ -192,7 +182,6 @@ public class Main {
 				 System.out.println("The percentage of married clients is " + (double)countMarried / numClient * 100 + "%, while percentage of single clients is " + (double)(numClient - countMarried) / numClient * 100 + "%.");
 				 System.out.println("Number of clients with full time job is " + countEmployee + ", and number of clients who don't have full time job is " + (numClient - countEmployee) + ".");
 				 System.out.println("The percentage of  clients with full time job is " + (double)countEmployee / numClient * 100 + "%, while percentage of clients who don't have full time job is " + (double)(numClient - countEmployee) / numClient * 100 + "%.");
-
 		}
 	}
 }
