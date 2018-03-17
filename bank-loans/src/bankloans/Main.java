@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+	
+	private static final String driver = "com.mysql.jdbc.Driver";
+	private static final String url = "jdbc:mysql://localhost:3306/";
+	private static final String user = "root";
+	private static final String password = "";
 
 	public static void main(String[] args) {
 		
@@ -39,11 +44,6 @@ public class Main {
 	}	
 	
 	private static void runClient() {		
-		
-		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/";
-		String user = "root";
-		String password = "";
 	
 		ArrayList<Client> clientList = new ArrayList<Client>();		
 		
@@ -178,10 +178,16 @@ public class Main {
 					prep.setBoolean(6, client.isFullTimeEmployee());
 					prep.setInt(7, client.getCredit());
 					
-					prep.executeUpdate();					        
+					prep.executeUpdate();	
+					
+					stt.close();
+					prep.close();
+					con.close();
 			            		            
 				} catch (Exception e) {
 					e.printStackTrace();
+				} finally {
+					
 				}
 				
 			}
@@ -197,11 +203,6 @@ public class Main {
 	}
 	
 		private static void updateClient() {		
-		
-			String driver = "com.mysql.jdbc.Driver";
-			String url = "jdbc:mysql://localhost:3306/";
-			String user = "root";
-			String password = "";
 						
 			try(Scanner userUpdate = new Scanner(System.in)) {
 				Class.forName(driver);
@@ -245,6 +246,10 @@ public class Main {
 	            prep.setInt(7, credit);
 
 	            prep.executeUpdate();
+	            
+	            stt.close();
+				prep.close();
+				con.close();
 	                		            
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -253,11 +258,6 @@ public class Main {
 	
 		private static void deleteClient() {		
 		
-		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/";
-		String user = "root";
-		String password = "";
-					
 		try(Scanner userDelete = new Scanner(System.in)) {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, password);
@@ -275,19 +275,17 @@ public class Main {
             PreparedStatement prep = con.prepareStatement(sql);
 
             prep.executeUpdate();
+            
+            stt.close();
+			prep.close();
+			con.close();
                  		            
         } catch (Exception e) {
-            e.printStackTrace();
+        	e.printStackTrace();
         }
 	}
-
 	
 	private static void readClient() {		
-		
-		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/";
-		String user = "root";
-		String password = "";
 		
 		 int countCredit = 0;
 		 int countMarried = 0;
@@ -363,6 +361,10 @@ public class Main {
             System.out.println("The percentage of married clients is " + (double)countMarried / numClient * 100 + "%, while percentage of single clients is " + (double)(numClient - countMarried) / numClient * 100 + "%.");
             System.out.println("Number of clients with full time job is " + countEmployee + ", and number of clients who don't have full time job is " + (numClient - countEmployee) + ".");
             System.out.println("The percentage of  clients with full time job is " + (double)countEmployee / numClient * 100 + "%, while percentage of clients who don't have full time job is " + (double)(numClient - countEmployee) / numClient * 100 + "%.");
+           
+            stt.close();
+			rs.close();
+			con.close();
             
 		}catch (Exception e) {
 			e.printStackTrace();
