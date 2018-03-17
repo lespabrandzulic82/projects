@@ -19,29 +19,27 @@ public class Main {
 		
 		try(Scanner scc = new Scanner(System.in)) {
 		
-		String choise = scc.next();
+			String choise = scc.next();
 			  
-		if(choise.equals("I") || choise.equals("i")) {
-			 runClient(); 
-		} else if(choise.equals("U") || choise.equals("u") ) {
-			 updateClient();
-		} else if(choise.equals("D") || choise.equals("d")) {
-			 deleteClient();		
-		} else if(choise.equals("C") || choise.equals("c")) {
-			 readClient();
-		} else while (!choise.equals("I") && !choise.equals("i") && !choise.equals("U") && !choise.equals("u") && !choise.equals("D") && !choise.equals("d") && !choise.equals("C") && !choise.equals("c")) {
-			System.out.println("THE PATH YOU ENTERED IS INCORRECT!");
-			
-			 System.out.println("Please, TRY AGAIN");
-			 System.out.println();
-			 choise = scc.next();
-		}
-}	
+			if(choise.equals("I") || choise.equals("i")) {
+				runClient(); 
+			} else if(choise.equals("U") || choise.equals("u") ) {
+				updateClient();
+			} else if(choise.equals("D") || choise.equals("d")) {
+				deleteClient();		
+			} else if(choise.equals("C") || choise.equals("c")) {
+				readClient();
+			} else while (!choise.equals("I") && !choise.equals("i") && !choise.equals("U") && !choise.equals("u") && !choise.equals("D") && !choise.equals("d") && !choise.equals("C") && !choise.equals("c")) {
+				System.out.println("THE PATH YOU ENTERED IS INCORRECT!");
+				System.out.println("Please, TRY AGAIN");
+				System.out.println();
+				choise = scc.next();
+			}
+		}	
 	}	
 	
 	private static void runClient() {		
 		
-		//connection to database
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/";
 		String user = "root";
@@ -89,193 +87,131 @@ public class Main {
 				}									
 			}
 
-			 int numClient = clientList.size(); 
+			int numClient = clientList.size(); 
 			 			 			 
-				 for(int i = 0; i < numClient; i++ ) {
+			for(int i = 0; i < numClient; i++ ) {
 					
-					Client client = clientList.get(i);
+				Client client = clientList.get(i);
 					
-					 String creditType = "";
-					 					 
-					 if(client.getCredit() == 1) {
-						 creditType = "House loan"; 
-					 } else if(client.getCredit() == 2) {
-						 creditType = "Cash loan";
-					 } else if(client.getCredit() == 3) {
-						 creditType = "Consumer loan";
-					 }
-					 
-					 boolean isCreditApproved;
-					 
-					 if(client.getCredit() == 1 && client.getAge() < 40 && client.getSalary() > 700 && client.isMarried() == true && client.isFullTimeEmployee() == true) {
-						 isCreditApproved = true;
-					 } else if(client.getCredit() == 2 && client.getAge() > 30 && client.getSalary() > 350) {
-						 isCreditApproved = true;
-					 } else if(client.getCredit() == 3  && client.getAge() > 20 && client.getSalary() > 250) {
-						 isCreditApproved = true;
-					 } else {
-						 isCreditApproved = false;
-					 }
-					
-				/*if (client.getCredit() == 1 && client.getAge() < 40 && client.getSalary() > 700 && client.isMarried() == true && client.isFullTimeEmployee() == true) {
-					System.out.println("=============================================");
-					System.out.println("Client applied for credit: " + creditType + "." + " Client's personal data are:");
-					System.out.println("Name: " + client.getName());
-					System.out.println("Surname: " + client.getSurname());
-					System.out.println("Salary: " + client.getSalary() + " EUR");
-					System.out.println("Age: " + client.getAge());
-					System.out.println("Is married: " + client.isMarried());
-					System.out.println("Is employed fulltime: " + client.isFullTimeEmployee());
-					System.out.println("Credit for this client will be approved!" );
-					System.out.println("=============================================");
-					}else if (client.getCredit() == 2 && client.getAge() > 30 && client.getSalary() > 350) {
-						System.out.println("=============================================");
-						System.out.println("Client applied for credit: " + creditType + "." + " Client's personal data are:");
-						System.out.println("Name: " + client.getName());
-						System.out.println("Surname: " + client.getSurname());
-						System.out.println("Salary: " + client.getSalary() + " EUR");
-						System.out.println("Age: " + client.getAge());
-						System.out.println("Is married: " + client.isMarried());
-						System.out.println("Is employed fulltime: " + client.isFullTimeEmployee());
-						System.out.println("Credit for this client will be approved!");
-						System.out.println("=============================================");
-					}else if (client.getCredit() == 3  && client.getAge() > 20 && client.getSalary() > 250) {
-						System.out.println("=============================================");
-						System.out.println("Client applied for credit: " + creditType + "." + " Client's personal data are:");
-						System.out.println("Name: " + client.getName());
-						System.out.println("Surname: " + client.getSurname());
-						System.out.println("Salary: " + client.getSalary() + " EUR");
-						System.out.println("Age: " + client.getAge());
-						System.out.println("Is married: " + client.isMarried());
-						System.out.println("Is employed fulltime: " + client.isFullTimeEmployee());
-						System.out.println("Credit for this client will be approved!");
-						System.out.println("=============================================");
-					}else {
-						System.out.println("=============================================");
-						System.out.println("Client applied for credit: " + creditType + "." + " Client's personal data are:");
-						System.out.println("Name: " + client.getName());
-						System.out.println("Surname: " + client.getSurname());
-						System.out.println("Salary: " + client.getSalary() + " EUR");
-						System.out.println("Age: " + client.getAge());
-						System.out.println("Is married: " + client.isMarried());
-						System.out.println("Is employed fulltime: " + client.isFullTimeEmployee());
-						System.out.println("Credit for this client will not be approved!");
-						System.out.println("=============================================");
-				}*/
-					 
-					 //if (IsCreditApproved = true) {
-					      int x = i + 1;
-						 System.out.println("=============================================");
-							System.out.println(x + ". Client applied for credit: " + creditType + "." + " Client's personal data are:");
-							System.out.println("Name: " + client.getName());
-							System.out.println("Surname: " + client.getSurname());
-							System.out.println("Salary: " + client.getSalary() + " EUR");
-							System.out.println("Age: " + client.getAge());
-							System.out.println("Is married: " + client.isMarried());
-							System.out.println("Is employed fulltime: " + client.isFullTimeEmployee());
-							System.out.println("Approved: " + isCreditApproved );
-							System.out.println("============================================="); 
-					/* } else {
-						 System.out.println("=============================================");
-							System.out.println("Client applied for credit: " + creditType + "." + " Client's personal data are:");
-							System.out.println("Name: " + client.getName());
-							System.out.println("Surname: " + client.getSurname());
-							System.out.println("Salary: " + client.getSalary() + " EUR");
-							System.out.println("Age: " + client.getAge());
-							System.out.println("Is married: " + client.isMarried());
-							System.out.println("Is employed fulltime: " + client.isFullTimeEmployee());
-							System.out.println("Credit for this client will not be approved!");
-							System.out.println("=============================================");
-					 }*/
+				String creditType = "";
 				
-							totalSalary += client.getSalary();				
+				if(client.getCredit() == 1) {
+					creditType = "House loan"; 
+				} else if(client.getCredit() == 2) {
+					creditType = "Cash loan";
+				} else if(client.getCredit() == 3) {
+					creditType = "Consumer loan";
+				}
+					 
+				boolean isCreditApproved;
+					 
+				if(client.getCredit() == 1 && client.getAge() < 40 && client.getSalary() > 700 && client.isMarried() == true && client.isFullTimeEmployee() == true) {
+					isCreditApproved = true;
+				} else if(client.getCredit() == 2 && client.getAge() > 30 && client.getSalary() > 350) {
+					isCreditApproved = true;
+				} else if(client.getCredit() == 3  && client.getAge() > 20 && client.getSalary() > 250) {
+					isCreditApproved = true;
+				} else {
+					isCreditApproved = false;
+				}
+				
+				int x = i + 1;
+				System.out.println("=============================================");
+				System.out.println(x + ". Client applied for credit: " + creditType + "." + " Client's personal data are:");
+				System.out.println("Name: " + client.getName());
+				System.out.println("Surname: " + client.getSurname());
+				System.out.println("Salary: " + client.getSalary() + " EUR");
+				System.out.println("Age: " + client.getAge());
+				System.out.println("Is married: " + client.isMarried());
+				System.out.println("Is employed fulltime: " + client.isFullTimeEmployee());
+				System.out.println("Approved: " + isCreditApproved );
+				System.out.println("============================================="); 
+				
+				totalSalary += client.getSalary();				
 				 
-							if(isCreditApproved == true) {
-								countCredit ++;
-							}
+				if(isCreditApproved == true) {
+					countCredit ++;
+				}
 							
-							if(client.isMarried() == true) {
-								countMarried ++;
-							}
+				if(client.isMarried() == true) {
+					countMarried ++;
+				}
 							
-							if(client.isFullTimeEmployee() == true) {
-								countEmployee ++;
-							}	
-														
-							try {
-					            Class.forName(driver);
-					            Connection con = DriverManager.getConnection(url, user, password);
+				if(client.isFullTimeEmployee() == true) {
+					countEmployee ++;
+				}	
+				
+				try {
+					Class.forName(driver);
+					Connection con = DriverManager.getConnection(url, user, password);
+					
+					Statement stt = con.createStatement();
 					            
-					            Statement stt = con.createStatement();
-					            
-					            stt.execute("CREATE DATABASE IF NOT EXISTS bank");
-					            stt.execute("USE bank");
-					            
-					            //stt.execute("DROP TABLE IF EXISTS client");
-					            stt.execute("CREATE TABLE IF NOT EXISTS client (" +
-					            "id BIGINT NOT NULL AUTO_INCREMENT,"
-					            + "name VARCHAR(25),"
-					            + "surname VARCHAR(25),"
-					            + "salary DOUBLE,"
-					            + "age INT,"
-					            + "isMarried BOOLEAN,"
-					            + "isFullTimeEmployee BOOLEAN,"
-					            + "credit INT,"
-					            + "PRIMARY KEY(id)"
-					            + ")");
-					            
-					           // stt.execute("INSERT INTO client(name, surname, salary, age, isMarried, isFullTimeEmployee, credit) VALUES" +
-					            		//"('Branko','Spalovic','150',36,1,0,2), ('Marko','Markovic','700',56,1,1,1)");			            
+					stt.execute("CREATE DATABASE IF NOT EXISTS bank");
+					stt.execute("USE bank");
+					
+					stt.execute("CREATE TABLE IF NOT EXISTS client (" +
+							"id BIGINT NOT NULL AUTO_INCREMENT,"
+							+ "name VARCHAR(25),"
+							+ "surname VARCHAR(25),"
+							+ "salary DOUBLE,"
+							+ "age INT,"
+							+ "isMarried BOOLEAN,"
+							+ "isFullTimeEmployee BOOLEAN,"
+							+ "credit INT,"
+							+ "PRIMARY KEY(id)"
+							+ ")");
+					
+					// stt.execute("INSERT INTO client(name, surname, salary, age, isMarried, isFullTimeEmployee, credit) VALUES" +
+					//"('Branko','Spalovic','150',36,1,0,2), ('Marko','Markovic','700',56,1,1,1)");			            
 					    				            
-					            String sql = "insert into client "
-					        			+ " (name, surname, salary, age, isMarried, isFullTimeEmployee, credit)" + " values (?, ?, ?, ?, ?, ?, ?)";
+					String sql = "insert into client "
+							+ " (name, surname, salary, age, isMarried, isFullTimeEmployee, credit)" + " values (?, ?, ?, ?, ?, ?, ?)";
+					
+					PreparedStatement prep = con.prepareStatement(sql);
 
-					            PreparedStatement prep = con.prepareStatement(sql);
-
-					            prep.setString(1, client.getName());
-					            prep.setString(2, client.getSurname());
-					            prep.setDouble(3, client.getSalary());
-					            prep.setInt(4, client.getAge());
-					            prep.setBoolean(5, client.isMarried());
-					            prep.setBoolean(6, client.isFullTimeEmployee());
-					            prep.setInt(7, client.getCredit());
-
-					            prep.executeUpdate();					        
+					prep.setString(1, client.getName());
+					prep.setString(2, client.getSurname());
+					prep.setDouble(3, client.getSalary());
+					prep.setInt(4, client.getAge());
+					prep.setBoolean(5, client.isMarried());
+					prep.setBoolean(6, client.isFullTimeEmployee());
+					prep.setInt(7, client.getCredit());
+					
+					prep.executeUpdate();					        
 			            		            
-					        } catch (Exception e) {
-					            e.printStackTrace();
-					        }
-							
-				 }
-				 				 
-				 System.out.println("Number of clients is " + numClient + ".");
-				 System.out.println("Average salary is " + totalSalary/numClient +".");
-				 System.out.println("Number of approved credist is " + countCredit + ", and number of rejected credits is " + (numClient - countCredit) + ".");
-				 System.out.println("The percentage of approved credits is " + (double)countCredit / numClient * 100 + "%, while percentage of rejected credits is " + (double)(numClient - countCredit) / numClient * 100 + "%.");
-				 System.out.println("Number of married clients is " + countMarried + ", and number of single clients is " + (numClient - countMarried) + ".");
-				 System.out.println("The percentage of married clients is " + (double)countMarried / numClient * 100 + "%, while percentage of single clients is " + (double)(numClient - countMarried) / numClient * 100 + "%.");
-				 System.out.println("Number of clients with full time job is " + countEmployee + ", and number of clients who don't have full time job is " + (numClient - countEmployee) + ".");
-				 System.out.println("The percentage of  clients with full time job is " + (double)countEmployee / numClient * 100 + "%, while percentage of clients who don't have full time job is " + (double)(numClient - countEmployee) / numClient * 100 + "%.");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			System.out.println("Number of clients is " + numClient + ".");
+			System.out.println("Average salary is " + totalSalary/numClient +".");
+			System.out.println("Number of approved credits is " + countCredit + ", and number of rejected credits is " + (numClient - countCredit) + ".");
+			System.out.println("The percentage of approved credits is " + (double)countCredit / numClient * 100 + "%, while percentage of rejected credits is " + (double)(numClient - countCredit) / numClient * 100 + "%.");
+			System.out.println("Number of married clients is " + countMarried + ", and number of single clients is " + (numClient - countMarried) + ".");
+			System.out.println("The percentage of married clients is " + (double)countMarried / numClient * 100 + "%, while percentage of single clients is " + (double)(numClient - countMarried) / numClient * 100 + "%.");
+			System.out.println("Number of clients with full time job is " + countEmployee + ", and number of clients who don't have full time job is " + (numClient - countEmployee) + ".");
+			System.out.println("The percentage of  clients with full time job is " + (double)countEmployee / numClient * 100 + "%, while percentage of clients who don't have full time job is " + (double)(numClient - countEmployee) / numClient * 100 + "%.");
 		}
 	}
 	
-	private static void updateClient() {		
+		private static void updateClient() {		
 		
-			//connection to database
 			String driver = "com.mysql.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/";
 			String user = "root";
 			String password = "";
 						
 			try(Scanner userUpdate = new Scanner(System.in)) {
-	            Class.forName(driver);
-	            Connection con = DriverManager.getConnection(url, user, password);
+				Class.forName(driver);
+				Connection con = DriverManager.getConnection(url, user, password);
 	            
-	        	Statement stt = con.createStatement();
+				Statement stt = con.createStatement();
 	            
 				stt.execute("USE bank");				
 		           
-	            System.out.println("Please enter client id to update: ");
+				System.out.println("Please enter client id to update: ");
 	            int id = userUpdate.nextInt();	     
 	            System.out.println("Please enter client name: ");
 	            String name = userUpdate.next();	 
@@ -294,14 +230,12 @@ public class Main {
 				System.out.println("If you want cash loan enter number 2");
 				System.out.println("If you want consumer loan enter number 3");
 				int credit = userUpdate.nextInt();	
-
 	            
-	            String sql = "UPDATE client SET name = ?, surname = ?, salary = ?, age = ?, isMarried = ?, isFullTimeEmployee = ?, credit = ?"
-	        			+ " WHERE id = '" + id + "'";
+				String sql = "UPDATE client SET name = ?, surname = ?, salary = ?, age = ?, isMarried = ?, isFullTimeEmployee = ?, credit = ?"
+						+ " WHERE id = '" + id + "'";
 
-	            PreparedStatement prep = con.prepareStatement(sql);
+				PreparedStatement prep = con.prepareStatement(sql);
 
-	        	// set param values
 	            prep.setString(1, name);
 	            prep.setString(2, surname);
 	            prep.setDouble(3, salary);
@@ -310,19 +244,15 @@ public class Main {
 	            prep.setBoolean(6, isFullTimeEmployee);
 	            prep.setInt(7, credit);
 
-	        	// 3. Execute SQL query
 	            prep.executeUpdate();
-	        
-        		            
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-			
-	}
+	                		            
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}
 	
-	private static void deleteClient() {		
+		private static void deleteClient() {		
 		
-		//connection to database
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/";
 		String user = "root";
@@ -354,7 +284,6 @@ public class Main {
 	
 	private static void readClient() {		
 		
-		//connection to database
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/";
 		String user = "root";
@@ -400,45 +329,44 @@ public class Main {
              	
              	boolean isCreditApproved; 					 		
 				 
-				 if(credit == 1 && age < 40 && salary > 700 && isMarried == true && isFullTimeEmployee == true) {
+             	if(credit == 1 && age < 40 && salary > 700 && isMarried == true && isFullTimeEmployee == true) {
+             		isCreditApproved = true;
+             	} else if(credit == 2 && age > 30 && salary > 350) {
+             		isCreditApproved = true;
+             	} else if(credit == 3  && age > 20 && salary > 250) {
 					 isCreditApproved = true;
-				 } else if(credit == 2 && age > 30 && salary > 350) {
-					 isCreditApproved = true;
-				 } else if(credit == 3  && age > 20 && salary > 250) {
-					 isCreditApproved = true;
-				 } else {
-					 isCreditApproved = false;
-				 }		 
+             	} else {
+             		isCreditApproved = false;
+             	}		 
 				
-				 if(isCreditApproved == true) {
-						countCredit ++;
-					}
+             	if(isCreditApproved == true) {
+             		countCredit ++;
+             	}
 					
-					if(isMarried == true) {
-						countMarried ++;
-					}
-					
-					if(isFullTimeEmployee == true) {
-						countEmployee ++;
-					}	
-					
+             	if(isMarried == true) {
+             		countMarried ++;
+             	}
+             	
+             	if(isFullTimeEmployee == true) {
+             		countEmployee ++;
+             	}	
             }
             
-            		System.out.println("========================================");
-            		System.out.println("Statistics: "); 
-            		System.out.println("========================================");
-            		System.out.println("Number of clients is " + numClient + ".");
-            		System.out.println("Average salary is " + totalSalary/numClient +".");
-            		System.out.println("Number of approved credist is " + countCredit + ", and number of rejected credits is " + (numClient - countCredit) + ".");
-            		System.out.println("The percentage of approved credits is " + (double)countCredit / numClient * 100 + "%, while percentage of rejected credits is " + (double)(numClient - countCredit) / numClient * 100 + "%.");
-            		System.out.println("Number of married clients is " + countMarried + ", and number of single clients is " + (numClient - countMarried) + ".");
-            		System.out.println("The percentage of married clients is " + (double)countMarried / numClient * 100 + "%, while percentage of single clients is " + (double)(numClient - countMarried) / numClient * 100 + "%.");
-            		System.out.println("Number of clients with full time job is " + countEmployee + ", and number of clients who don't have full time job is " + (numClient - countEmployee) + ".");
-            		System.out.println("The percentage of  clients with full time job is " + (double)countEmployee / numClient * 100 + "%, while percentage of clients who don't have full time job is " + (double)(numClient - countEmployee) / numClient * 100 + "%.");
-              
+            System.out.println("========================================");
+            System.out.println("Statistics: "); 
+            System.out.println("========================================");
+            System.out.println("Number of clients is " + numClient + ".");
+            System.out.println("Average salary is " + totalSalary/numClient +".");
+            System.out.println("Number of approved credist is " + countCredit + ", and number of rejected credits is " + (numClient - countCredit) + ".");
+            System.out.println("The percentage of approved credits is " + (double)countCredit / numClient * 100 + "%, while percentage of rejected credits is " + (double)(numClient - countCredit) / numClient * 100 + "%.");
+            System.out.println("Number of married clients is " + countMarried + ", and number of single clients is " + (numClient - countMarried) + ".");
+            System.out.println("The percentage of married clients is " + (double)countMarried / numClient * 100 + "%, while percentage of single clients is " + (double)(numClient - countMarried) / numClient * 100 + "%.");
+            System.out.println("Number of clients with full time job is " + countEmployee + ", and number of clients who don't have full time job is " + (numClient - countEmployee) + ".");
+            System.out.println("The percentage of  clients with full time job is " + (double)countEmployee / numClient * 100 + "%, while percentage of clients who don't have full time job is " + (double)(numClient - countEmployee) / numClient * 100 + "%.");
+            
 		}catch (Exception e) {
-            e.printStackTrace();
-        }
+			e.printStackTrace();
+		}
 	}
 }
 
