@@ -36,7 +36,7 @@ public class Main {
 				readClient();
 			} else while (!choise.equals("I") && !choise.equals("i") && !choise.equals("U") && !choise.equals("u") && !choise.equals("D") && !choise.equals("d") && !choise.equals("C") && !choise.equals("c")) {
 				System.out.println("THE PATH YOU ENTERED IS INCORRECT!");
-				System.out.println("Please, TRY AGAIN");
+				System.out.println("Please, TRY AGAIN!");
 				System.out.println();
 				choise = scc.next();
 			}
