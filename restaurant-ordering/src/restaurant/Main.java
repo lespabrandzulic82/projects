@@ -50,7 +50,7 @@ public class Main {
             
             stt.execute("CREATE TABLE IF NOT EXISTS menu (" +
                     "id BIGINT NOT NULL AUTO_INCREMENT,"
-                    + "description VARCHAR(50),"
+                    + "name VARCHAR(50),"
                     + "menu_type VARCHAR(25),"
                     + "price DOUBLE,"
                     + "PRIMARY KEY(id)"
@@ -95,7 +95,9 @@ public class Main {
 }
 	
 	private static void runPizza() {
-		
+		System.out.println("Welcome to Pizza menu");
+        System.out.println("Please choose your pizza:");
+
 	}
 	
 	private static void runPasta() {
