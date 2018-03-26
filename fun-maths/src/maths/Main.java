@@ -3,7 +3,6 @@ package maths;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -51,7 +50,7 @@ public class Main {
 		
 		try {
 			
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(driver);
 			
 		} catch (ClassNotFoundException e) {
 			//System.out.println("Where is your MySQL JDBC Driver?");
@@ -465,7 +464,6 @@ public class Main {
              	String date = rs.getString(3);
              	int taskId = rs.getInt(4);
              	double taskResult = rs.getDouble(5);
-             	int id = rs.getInt(6);
              	double result = rs.getDouble(7);
              	int level = rs.getInt(8);
 
