@@ -1,16 +1,11 @@
 package guessingGame;
-
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 	
-	
-
-    public static void main(String[] args) {      
+	public static void main(String[] args) {      
         
-    	
-    	    int randNum = 0;
+       	    int randNum = 0;
     	    int max = 101;
     	    int min = -1;
     	    String userChoise = "";
@@ -27,7 +22,6 @@ public class Main {
     	    	
     	              while(true) {           		
     	        	   
-            		
     	            	  if (userChoise.equals("Y") || userChoise.equals("y")) {
     	            		  System.out.println("Ok, let's start!");    	        		
     	            		  //userChoise = sc.next();
