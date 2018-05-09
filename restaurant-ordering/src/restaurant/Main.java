@@ -77,8 +77,7 @@ public class Main {
                     + "name VARCHAR(50),"
                     + "PRIMARY KEY(id)"
                     + ")");
-            
-            
+                        
             stt.close();
             conn.close();
             
@@ -87,8 +86,7 @@ public class Main {
             
         	e.printStackTrace();
         }
-        
-        
+               
         try {
             
             Class.forName(driver);
