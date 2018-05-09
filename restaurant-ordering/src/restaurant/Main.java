@@ -4,50 +4,47 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
 public class Main {
 	
 	private static final String driver = "com.mysql.jdbc.Driver";
 	private static final String url = "jdbc:mysql://localhost:3306/";
 	private static final String user = "root";
 	private static final String password = "";
-	
-	
+		
 	static int numbTable;
 	static int numbPerson;
 	//static int id_menu;
 	
-	public static void main(String[] args) throws SQLException {
-		//ArrayList<Order> orderList = new ArrayList<Order>();
-        try {
+		public static void main(String[] args) throws SQLException {
+			//ArrayList<Order> orderList = new ArrayList<Order>();
+			try {
             
             Class.forName(driver);
             
-        } catch (ClassNotFoundException e) {
+			} catch (ClassNotFoundException e) {
             //System.out.println("Where is your MySQL JDBC Driver?");
             e.printStackTrace();
             return;
-        }
+			}
 
-        //System.out.println("MySQL JDBC Driver Registered!");
-        Connection conn = null;
+			//System.out.println("MySQL JDBC Driver Registered!");
+			Connection conn = null;
         
-        try {
+			try {
             
-            conn = DriverManager.getConnection(url,user, password);
+				conn = DriverManager.getConnection(url,user, password);
 
-        } catch (SQLException e) {
-            //System.out.println("Connection Failed! Check output console");
-            e.printStackTrace();
-            return;
-        }
+			} catch (SQLException e) {
+				//System.out.println("Connection Failed! Check output console");
+				e.printStackTrace();
+				return;
+			}
 
-        if (conn != null) {
+			if (conn != null) {
             System.out.println("You made it, take control your database now!");
-        } else {
+			} else {
             System.out.println("Failed to make connection!");
-        }
+			}
         
         try {
             
@@ -83,16 +80,16 @@ public class Main {
             
             
             stt.close();
-			conn.close();
+            conn.close();
             
             
         } catch (Exception e) {
             
-            e.printStackTrace();
+        	e.printStackTrace();
         }
         
         
-try {
+        try {
             
             Class.forName(driver);
             
@@ -130,9 +127,7 @@ try {
         numbTable = scc.nextInt();
         System.out.println("Enter the number of person which are on table:");
         numbPerson = scc.nextInt();
-        
-        
-		
+        		
         System.out.println("If you want to PIZA Menu, enter P");
         System.out.println("If you want to PASTA Menu, enter T");
         System.out.println("If you want to DESSERT Menu, enter D");
@@ -162,9 +157,9 @@ try {
             }
         }
     
-}
+		}
 	
-	private static void runPizza() {
+		private static void runPizza() {
 		
 		System.out.println("Welcome to Pizza menu");
         System.out.println("Please choose your pizza:");
@@ -594,8 +589,7 @@ try {
     					break;
     				}
         		}
-        		
-        		
+        		        		
         		System.out.println("If you want to something else, continue with ordering:");
         		System.out.println("If you want to PASTA Menu, enter T");
         		System.out.println("If you want to DESSERT Menu, enter D");
@@ -633,12 +627,10 @@ try {
 	
 	private static void runFinishOrder() {
 		
-try {
+		try {
 			
 			Class.forName(driver);
-			
-		
-			
+						
 		} catch (ClassNotFoundException e) {
 			//System.out.println("Where is your MySQL JDBC Driver?");
 			e.printStackTrace();
@@ -662,8 +654,7 @@ try {
 		} else {
 			System.out.println("Failed to make connection!");
 		}
-		
-		
+				
 		System.out.println("You finished your order");
 		System.out.println("This is your order:");
 		
@@ -696,9 +687,7 @@ try {
             prep.setInt(1, numbtable);
 			prep.setInt(2, numbperson);
 			prep.setString(3, name);
-			
-			
-				
+							
 			prep.executeUpdate();
 	     	
 	     	 String sql2 = "DELETE from orders"
@@ -706,13 +695,8 @@ try {
 
 	            PreparedStatement prep2 = conn.prepareStatement(sql2);
 
-	            prep2.executeUpdate();
-	            
-	            
-			
+	            prep2.executeUpdate();			
         	}
-        	
-        	
         	
         	stt.close();
 			//prep.close();
@@ -720,10 +704,7 @@ try {
 			
 		}catch (Exception e) {
             	e.printStackTrace();
-            }        
-		
-	
-     	
+            }           	
 		System.out.println("We will bring your order as soon as we can.");
 	}
 
