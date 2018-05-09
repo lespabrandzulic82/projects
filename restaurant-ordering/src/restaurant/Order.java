@@ -2,21 +2,19 @@ package restaurant;
 
 public class Order {
 	
+	private int id;
 	private int numbTable;
 	private int numbPerson;
-	private String pizza;
-	private String pasta;
-	private String dessert;
-	private String drink;
+	private int idMenu;
 	 
-	public Order (int numbTable ,int numbPerson,String pizza, String pasta, String dessert, String drink) { 
+	public Order (int id,int numbTable, int numbPerson,int idMenu) { 
+		this.id = id;
 		this.numbTable = numbTable;
-		this.numbPerson = numbPerson;
-		this.pizza = pizza;
-		this.pasta = pasta;
-		this.dessert = dessert;
-		this.drink = drink;
-		
+		this.numbPerson = numbPerson;			
+	}
+	
+	public int getId() {
+		return id;
 	}
 	
 	public int getNumbTable() {
@@ -27,20 +25,9 @@ public class Order {
 		return numbPerson;
 	}
 	
-	public String getPizza() {
-		return pizza;
+	public int getIdMenu() {
+		return idMenu;
 	}
 	
-	public String getPasta() {
-		return pasta;
-	}
 	
-	public String getDessert() {
-		return dessert;
-	}
-	
-	public String getDrink() {
-		return drink;
-	}
-
 }
