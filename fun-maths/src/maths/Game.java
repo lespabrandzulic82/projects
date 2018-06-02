@@ -25,7 +25,6 @@ public class Game {
 			String sql = "SELECT id, description, result FROM task "
 				+ "WHERE level =" + level;	
 		
-			Statement statement = null;
 			ResultSet resultSet = statement.executeQuery(sql);	
 		
 			resultSet.beforeFirst();
@@ -37,7 +36,7 @@ public class Game {
 				child.setTaskResult(task.getId());
 				System.out.println(task.getDescription());		
 				System.out.println("The result is: ");
-	            Scanner scanner = null;
+	          
 				child.setTaskResult(scanner.nextDouble());
 	            
 	            boolean isCorrectAnswer = task.getId() == child.getTaskId() && task.getResult()
@@ -46,7 +45,6 @@ public class Game {
                                    				 
 	            taskList.add(child);       			
          		
-	            Connection connection = null;
 				DatabaseSchema.insertStatistic(connection, child);
       		         			            
 	            childResulList.add(child.getTaskResult());	
