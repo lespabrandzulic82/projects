@@ -40,7 +40,26 @@ public class Child {
 	}
 	
 	public boolean getCorrectAnswer() {
-		return correctAnswer;
-	}	
+		
+		return correctAnswer ;
+	}
+	
+	public void setCorrectAnswer(boolean correctAnswer) {
+		
+		this.correctAnswer = correctAnswer;
+	}
+
+	public void setTaskId(int taskId) {
+
+		this.taskId = taskId; 
+		
+	}
+	
+	public void setTaskResult(double taskResult) {
+		
+		this.taskResult = taskResult;
+	}
+
+		
 
 }
