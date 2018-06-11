@@ -19,7 +19,7 @@ public class Task {
 		return id;
 	}
 	
-	public void setId(int Id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
@@ -39,7 +39,7 @@ public class Task {
 		this.result = result;
 	}
 	
-	public int getLevel(int level) {
+	public int getLevel() {
 		return level;
 	}
 	

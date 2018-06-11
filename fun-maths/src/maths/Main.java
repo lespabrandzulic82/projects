@@ -1,9 +1,9 @@
 package maths;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+
+import com.mysql.jdbc.exceptions.jdbc4.CommunicationsException;
 
 public class Main {
 	
@@ -23,10 +23,12 @@ public class Main {
 		
 			String choise = scanner.next();
 			  
+			Child child = null;
+			Task task = null;
 			if(choise.equalsIgnoreCase("T")) {
-				runTasks(); 
+				runTask(child, task); 
 			} else if(choise.equalsIgnoreCase("S")) {
-				StatisticsReport.runStatistics();
+				StatisticsReport.runStatistics(child, task);
 			} else while (!choise.equalsIgnoreCase("T") && !choise.equalsIgnoreCase("S")) {
 				System.out.println("The path you entered is inccorect.");
 				System.out.println("Please, try again");
@@ -34,9 +36,16 @@ public class Main {
 				choise = scanner.next();
 			}
 		}
+		catch(CommunicationsException e) {
+			System.out.println("Failed to communicate with the database server. Please contact the system administrator.");
+		}
+		catch(Exception e) {
+			System.out.println("An unexpected error has occurred.");
+			e.printStackTrace();
+		}
 	}
 	
-	public static void runTasks() throws SQLException {
+	public static void runTask(Child child, Task task) throws SQLException, ClassNotFoundException {
 				
 		Connection connection = DatabaseSchema.getConnection();
 		
@@ -45,16 +54,14 @@ public class Main {
 		
 		try(Scanner scanner = new Scanner(System.in)) {
 					
-			Child child = ChildReader.readChildData(scanner);
+			child = ChildReader.readChildData(scanner);
 						
 			//child will go on next level only when succesfully finish previous level
 			
-			Game.runLevel(child, 1, false);
-			Game.runLevel(child, 2, false); 
-			Game.runLevel(child, 3, true);
+			Game.runLevel(scanner, connection, child, task, 1, false);
+			Game.runLevel(scanner, connection, child, task, 2, false); 
+			Game.runLevel(scanner, connection, child, task, 3, true);
 			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 	 

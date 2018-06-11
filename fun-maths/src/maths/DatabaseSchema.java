@@ -11,37 +11,27 @@ public class DatabaseSchema {
 	private static final String password = "";
 	
 	
-	public static Connection getConnection() {
+	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		
 		try {
-			
 			Class.forName(driver);
-			
+			System.out.println("MySQL JDBC Driver Registered.");
 		} catch (ClassNotFoundException e) {
-			//System.out.println("Where is your MySQL JDBC Driver?");
+			System.out.println("The MySQL JDBC Driver could not be found.");
 			e.printStackTrace();
-			return null;
+			throw e;
 		}
-
-			//System.out.println("MySQL JDBC Driver Registered!");
-			Connection connection;
 		
 		try {
-			connection = DriverManager.getConnection(url,user, password);
-
+			Connection connection = DriverManager.getConnection(url, user, password);
+			System.out.println("Successfully connected to the database.");
+			return connection;
 		} catch (SQLException e) {
-			//System.out.println("Connection Failed! Check output console");
+			System.out.println("Failed to connect to the database, the server may not be running or the credentials are invalid.");
 			e.printStackTrace();
-			return null;
+			throw e;
 		}
 
-		if (connection != null) {
-			System.out.println("You made it, take control your database now!");
-		} else {
-			System.out.println("Failed to make connection!");
-		}
-		return connection;
-		
 	}
 	
     public static void prepareDatabase(Connection connection) throws SQLException {
@@ -111,6 +101,9 @@ public class DatabaseSchema {
 	
 	public static Task readTask(ResultSet resultSet) throws SQLException {
 		
+
+		 
+		//showResultSetMetadata(resultSet);
 		//double result = 0.00;
 		//int id = 0;
 		
@@ -139,6 +132,16 @@ public class DatabaseSchema {
 	     			         					
 	        prep.executeUpdate();
 			
+	}
+	
+	public static void showResultSetMetadata(ResultSet resultSet) throws SQLException {
+		ResultSetMetaData rsmd = resultSet.getMetaData();
+		int numColumns = rsmd.getColumnCount();
+		
+		for(int i = 1; i <= numColumns; i++) {
+			String name = rsmd.getColumnName(i);
+			System.out.println(i + " " + name);
+		}
 	}
 
 }
