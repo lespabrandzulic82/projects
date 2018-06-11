@@ -27,15 +27,15 @@ public class StatisticsReport {
         ResultSet resultSet = statement.executeQuery(sql);  
         
             while(resultSet.next()) {
-            	String name = resultSet.getString(1);
-             	String surname = resultSet.getString(2);
-             	String date = resultSet.getString(3);
-             	int taskId = resultSet.getInt(4);
-             	double taskResult = resultSet.getDouble(5);
-             	double result = resultSet.getDouble(7);
-             	int level = resultSet.getInt(8);
+            	child.setName(resultSet.getString(1));
+             	child.setSurname(resultSet.getString(2));
+             	child.setDate(resultSet.getString(3));
+             	child.setTaskId(resultSet.getInt(4));
+             	child.setTaskResult(resultSet.getDouble(5));
+             	task.setResult(resultSet.getDouble(7));
+             	task.setLevel(resultSet.getInt(8));
 
-         	System.out.println(name + " " + surname + ", date: " + date + ", task number: " + taskId + ", entered result: " + taskResult + ", correct result: " + result + ", level: " + level);
+         	System.out.println(child.getName() + " " + child.getSurname() + ",date(): " + child.getDate() + ", task number: " + child.getTaskId() + ", entered result: " + child.getTaskResult() + ", correct result: " + task.getResult() + ", level: " + task.getLevel());
          	
                  }
         System.out.println("========================================");
@@ -51,13 +51,13 @@ public class StatisticsReport {
         
         	while(resultSet1.next()) {
         	
-        		String name = resultSet1.getString(1);
-             	String surname = resultSet1.getString(2);
+        		child.setName(resultSet1.getString(1));
+        		child.setSurname(resultSet1.getString(2));
              	int numOfCorrectAnswer = resultSet1.getInt(3);
              	int numOfRows = resultSet1.getInt(4);
-             	String date = resultSet1.getString(5);
+             	child.setDate(resultSet1.getString(5));
   
-         	System.out.println(name + " " + surname + ", number of correct answers: " + numOfCorrectAnswer + ", number of tries: " + numOfRows + ", date: " + date);
+         	System.out.println(child.getName() + " " + child.getSurname() + ", number of correct answers: " + numOfCorrectAnswer + ", number of tries: " + numOfRows + ", date: " + child.getDate());
         	}
 		}
 }
