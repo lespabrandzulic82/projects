@@ -44,10 +44,9 @@ public class Main {
 			Student student = new Student(studentName, studentSurname, grade);
 			
 			students[i] = student;
-			
-			// students[i] = new Student(studentName, studentSurname, grade);  da se napise odjednom
-			
+
 			}
+			
 			double totalGrade = 0;
 			
 			for(int i = 0; i < students.length; i++) {
