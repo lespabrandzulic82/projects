@@ -21,10 +21,8 @@ public class Main {
 				System.out.println("Enter " + position + " student grade:");
 				int grade = sc.nextInt();
 					
-			Student student = new Student(studentName, studentSurname, grade);
-			
+			Student student = new Student(studentName, studentSurname, grade);			
 			students[i] = student;
-
 			}
 			
 			double totalGrade = 0;
