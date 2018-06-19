@@ -1,45 +1,64 @@
 package gradebook;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Student students[] = new Student[5];
+		//Student students[] = new Student[5];
 		
+		ArrayList<Student> studentList = new ArrayList<Student>();
+		//int numberOfStudents = studentList.size();	
+		
+		double totalGrade = 0;
+		double averageGrade = 0;
 		try (Scanner sc = new Scanner(System.in)){
 			
-			for(int i = 0; i < students.length; i++) {
-				
-				int position = i+1;
+			while(true) {
 			
-				System.out.println("Enter " + position + " student name:");
+				System.out.println("Enter student name:");
 				String studentName = sc.next();
-				System.out.println("Enter " + position + " student surname:");
+				System.out.println("Enter student surname:");
 				String studentSurname = sc.next();
-				System.out.println("Enter " + position + " student grade:");
+				System.out.println("Enter student grade:");
 				int grade = sc.nextInt();
 					
-			Student student = new Student(studentName, studentSurname, grade);			
-			students[i] = student;
+				Student student = new Student(studentName, studentSurname, grade);			
+				//students[i] = student;
+				studentList.add(student);
+				
+				char quitProgram = 'N';
+				
+				System.out.println("If you want to finish the entered students Y, if not press N");
+				quitProgram = sc.next().charAt(0);
+			
+				if (quitProgram ==  'Y' || quitProgram == 'y') {
+					break;
+				}
+			
 			}
 			
-			double totalGrade = 0;
-			
-			for(int i = 0; i < students.length; i++) {
+			int numberOfStudents = studentList.size();
+			/*for(int i = 0; i < numberOfStudents; i++) {
 				
-				Student student = students[i];
+				Student student = studentList.get(i);
 				double grade = student.getGrade();
-				totalGrade += grade;	
+				totalGrade += sgrade;	
 			}
+			*/
+			// double averageGrade = totalGrade / numberOfStudents;
 			
-			double averageGrade = totalGrade / students.length;
-			
-			for(int i = 0; i < students.length; i++) {
+			for(int i = 0; i < numberOfStudents; i++) {
+				 
+				Student student = studentList.get(i);
 				
-				Student student = students[i];
-				System.out.println("The first student " + student.getStudentName() + " " +student.getStudentSurname()  + " has grade " + student.getGrade() + ".");
+				totalGrade += student.getGrade();
+				averageGrade = totalGrade / numberOfStudents;
+				
+				int position = i + 1;
+				System.out.println("The " + position + ". student " + student.getStudentName() + " " +student.getStudentSurname()  + " has grade " + student.getGrade() + ".");
 				}							
 				System.out.println("_________________________________________________");
 							
