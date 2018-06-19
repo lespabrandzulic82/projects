@@ -30,28 +30,63 @@ public class Client {
 		return name;		
 	}
 	
+	public void setName(String name) {
+
+		this.name = name; 
+	}
+	
 	public String getSurname() {
 		return surname;
+	}
+	
+	public void setSurname(String surname) {
+
+		this.surname = surname; 
 	}
 	
 	public double getSalary() {
 		return salary;
 	}
 	
+	public void setSalary(double salary) {
+		
+		this.salary = salary;
+	}
+	
 	public int getAge() {
 		return age;
+	}
+	
+	public void setAge(int age) {
+		
+		this.age = age;
 	}
 	
 	public boolean isMarried() {
 		return isMarried;
 	}
 	
+	public void setIsMarried(boolean isMarried) {
+		
+		this.isMarried = isMarried;
+	}
+	
 	public boolean isFullTimeEmployee() {
 		return isFullTimeEmployee;
 	}
 	
+	public void setIsFullTimeEmployee(boolean isFullTimeEmployee) {
+		
+		this.isFullTimeEmployee = isFullTimeEmployee;
+	}
+	
 	public int getCredit() {
 		return credit;
+	}
+	
+	public void setCredit(int credit) {
+		
+		this.credit = credit;
 	}
 
 	public int size() {
