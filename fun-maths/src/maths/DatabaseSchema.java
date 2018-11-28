@@ -49,12 +49,9 @@ public class DatabaseSchema {
         
 			statement.execute("CREATE DATABASE IF NOT EXISTS maths");
 		
-
-			
-			
-			
-			
 	}
+	
+	
 	private static void createTableTask(Connection connection) throws SQLException {
 		Statement statement = connection.createStatement();
 		statement.execute("USE maths");
