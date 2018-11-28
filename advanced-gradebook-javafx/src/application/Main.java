@@ -26,7 +26,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 
-
 public class Main extends Application {
 	
 		private TextField tfNumberStudents = new TextField();
@@ -67,11 +66,6 @@ public class Main extends Application {
 		private StringProperty messAvgGrade = new SimpleStringProperty();
 
 
-
-
-		
-	
-
 		@Override
 		public void start(Stage stage) throws Exception {
 			try {
@@ -102,9 +96,6 @@ public class Main extends Application {
 			
 			gridPane.add(gridPaneRaport, 0, 7);
 			//lbRaport.textProperty().bind(messName);
-			
-			
-			
 			
 			lbMax.textProperty().bind(messMax);
 			gridPane.add(lbMax, 0, 8);
@@ -243,8 +234,7 @@ public class Main extends Application {
 				
 				btAddStudent.setDisable(true);
 			}
-			
-			
+						
 		}
 		
 		public void getRunRaport() {
