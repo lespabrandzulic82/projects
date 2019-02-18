@@ -2,16 +2,17 @@ package vezba;
 
 
 
-public class TestTax {
+public class Main {
 	 
 	 public void main(String[] args) {
 		 
 		 Tax t = new Tax();
 		 t.calcTax();
 			
-		 //System.out.print("tax is" + calcTax);
-		}
+		 double yourTax = t.calcTax();
+		 System.out.print("Your tax is " + yourTax);
 
+     }
 }
  class Tax {
 	 
@@ -19,11 +20,11 @@ public class TestTax {
 		String state;
 		int dependtents;
 		
-		double calcTax() {
+		  double calcTax() {
 			
 			return 234.55;
-		}
-		
+		  }
+ }	
 	
-}
+
  
