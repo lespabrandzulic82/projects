@@ -11,9 +11,10 @@ import java.util.concurrent.BlockingQueue;
 public class ReaderCSVThread implements Runnable{
 
   protected BlockingQueue<String> blockingQueue = null;
-
-  public ReaderCSVThread(BlockingQueue<String> blockingQueue){
-    this.blockingQueue = blockingQueue;     
+  int time;
+  public ReaderCSVThread(BlockingQueue<String> blockingQueue,int time){
+    this.blockingQueue = blockingQueue;
+    this.time = time;
   }
 
   @Override
@@ -29,8 +30,9 @@ public class ReaderCSVThread implements Runnable{
     	        Test test = new Test(temp[0], Integer.parseInt(temp[1]), Double.parseDouble(temp[2]));
     	        lista.add(test);
                 blockingQueue.put("\"InputA\"," + buffer);
+                Thread.sleep(time);
             }
-            blockingQueue.put("EOF");  //na kraju fajla
+            //blockingQueue.put("EOF");  //na kraju fajla
 
         } catch (FileNotFoundException e) {
 

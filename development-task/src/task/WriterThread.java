@@ -23,7 +23,7 @@ public class WriterThread implements Runnable{
         while(true){
             String buffer = blockingQueue.take();
             
-            if(buffer.equals("EOF")){ //kraj fajla
+            if( !Main.isProducerAlive()){ 
                 break;
             }
             writer.println(buffer);

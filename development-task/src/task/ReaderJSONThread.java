@@ -13,9 +13,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ReaderJSONThread implements Runnable{
 
   protected BlockingQueue<String> blockingQueue = null;
-
-  public ReaderJSONThread(BlockingQueue<String> blockingQueue){
-    this.blockingQueue = blockingQueue;     
+   int time;//
+   
+  public ReaderJSONThread(BlockingQueue<String> blockingQueue,int time){
+    this.blockingQueue = blockingQueue; 
+    this.time = time;
   }
 
   @Override
@@ -32,8 +34,9 @@ public class ReaderJSONThread implements Runnable{
     	   			int quantity = jsonNode.get("quantity").asInt();
     	   			double price  = jsonNode.get("price").asDouble();	        	
                 blockingQueue.put("\"InputB\","  + id + "," + quantity + "," + price);
+                Thread.sleep(time); //
             }
-            blockingQueue.put("EOF"); //kraj fajla
+            //blockingQueue.put("EOF"); //kraj fajla
 
         } catch (FileNotFoundException e) {
 

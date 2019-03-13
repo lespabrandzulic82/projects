@@ -12,31 +12,41 @@ import org.json.simple.parser.ParseException;
 
 public class Main{
 
-
+    private static ArrayList<Thread> allThreadCollection;
 	public static void main(String[] args) throws IOException, ParseException  {
           
-		   BlockingQueue<String> queue = new ArrayBlockingQueue<String>(1024);
-
-		    ReaderCSVThread readerCSV = new ReaderCSVThread(queue);
-		    ReaderJSONThread readerJSON = new ReaderJSONThread(queue);
+		   BlockingQueue<String> queue = new ArrayBlockingQueue<String>(2);
+           allThreadCollection = new ArrayList<Thread>();
+		   // ReaderCSVThread readerCSV = new ReaderCSVThread(queue);
+		   // ReaderJSONThread readerJSON = new ReaderJSONThread(queue);
 		    WriterThread writer = new WriterThread(queue);
 
-		    new Thread(readerJSON).start();
-		    new Thread(readerCSV).start();
-		    /*
-		    try 
-		    {
-		    	new Thread(readerCSV).join();
-		    	new Thread(readerJSON).join();
-		    	}catch (InterruptedException e) {
-		    		
-		    }
-		    	*/
-		    new Thread(writer).start();
+		    		    
+		    Thread csvA = new Thread(new ReaderCSVThread(queue,3));
+		    Thread jsonB = new Thread(new ReaderJSONThread(queue,5));
+		   // new Thread(readerJSON).start();
+		   // new Thread(readerCSV).start();
+		   allThreadCollection.add(csvA);
+		   allThreadCollection.add(jsonB);
 		   
-	    
-	   }
+		   csvA.start();
+		   jsonB.start();
+		    	
+		    new Thread(writer).start();
+	}
+	
+	 public static boolean isProducerAlive() {
+		 
+		 for(Thread t : allThreadCollection) {
+			 if(t.isAlive()) 
+				 
+			  return true;
+		 } 
+			  return false;
+	 }	  
+	 
+}
 	
 
 				
-   }
+  
