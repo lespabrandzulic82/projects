@@ -36,7 +36,7 @@ public class ReaderJSONThread implements Runnable{
                 blockingQueue.put("\"InputB\","  + id + "," + quantity + "," + price);
                 Thread.sleep(time); //
             }
-            //blockingQueue.put("EOF"); //kraj fajla
+           
 
         } catch (FileNotFoundException e) {
 

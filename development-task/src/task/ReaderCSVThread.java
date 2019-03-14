@@ -32,7 +32,7 @@ public class ReaderCSVThread implements Runnable{
                 blockingQueue.put("\"InputA\"," + buffer);
                 Thread.sleep(time);
             }
-            //blockingQueue.put("EOF");  //na kraju fajla
+            
 
         } catch (FileNotFoundException e) {
 
